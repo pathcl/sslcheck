@@ -1,0 +1,22 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+coverage = "*"
+mkdocs = "*"
+mkdocs-cinder = "*"
+pylint = "*"
+setuptools = "*"
+tox = "*"
+wheel = "*"
+
+
+[packages]
+
+certifi = "*"
+pyopenssl = "*"

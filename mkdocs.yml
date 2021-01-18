@@ -1,0 +1,10 @@
+site_name: SSLCheck - A simple command line SSL validator
+site_url: https://radek-sprta.gitlab.io/sslcheck
+site_author: Radek Sprta
+theme: cinder
+pages:
+  - Home: index.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+  - License: license.md
+repo_url: https://gitlab.com/radek-sprta/sslcheck

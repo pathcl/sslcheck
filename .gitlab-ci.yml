@@ -1,0 +1,43 @@
+image: python:latest
+
+stages:
+  - test
+  - build
+  - release
+
+before_script: 
+  - pip install pipenv
+  - pip install tox 
+
+test:linters:
+  stage: test
+  script: tox -e linters
+  allow_failure: true
+  
+build:package:
+  stage: build
+  script: tox -e build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week
+
+release:pypi:
+  stage: release
+  before_script:
+    - pip install twine
+  script:
+    - twine upload --skip-existing dist/*
+  only:
+    - tags
+
+pages:
+  script:
+    - pip install mkdocs
+    - pip install mkdocs-cinder
+    - mkdocs build -d public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
